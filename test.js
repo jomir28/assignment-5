@@ -49,11 +49,23 @@ document.getElementById('apply-btn').addEventListener('click',function(){
     const grandTotal =document.getElementById('grand-total');
     const grandTotalValue =parseInt(grandTotal.innerText);
     grandTotal.innerText=grandTotalValue-(grandTotalValue*0.2);
-    console.log(grandTotal)
+    // console.log(grandTotal)
+
+    const inputField =document.getElementById('input-field');
+    inputField.classList.add('hidden')
     
  }
+ else if(cuponField === "NEW15"){
+    const grandTotal =document.getElementById('grand-total');
+    const grandTotalValue =parseInt(grandTotal.innerText);
+    grandTotal.innerText=grandTotalValue-(grandTotalValue*0.15);
+
+    const inputField =document.getElementById('input-field');
+    inputField.classList.add('hidden')
+ }
  else{
-     alert("Invalid Cupon Code")
+     alert("Invalid Cupon Code");
+     document.getElementById('cupun-field').value="";
  }
 
    })
