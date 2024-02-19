@@ -6,10 +6,9 @@ for (const seat of seats) {
         const seatCount = document.getElementById('seat-count');
         seatCounts++;
         seatCount.innerText = seatCounts;
-        //   document.getElementById('seat-count').innerText=seatCounts;
+
         const totalSeat = document.getElementById('total-seat').innerText;
         const convertedTotalSeat = parseInt(totalSeat);
-        // console.log(convertedTotalSeat)
         const newTotalSeat = convertedTotalSeat - 1;
         document.getElementById('total-seat').innerText = newTotalSeat;
         // ...........seat count jug biyug complete............... //
@@ -31,7 +30,30 @@ for (const seat of seats) {
         grandTotals.innerText=seatPrice+grandTotal;
         
         // ............................................................... // 
-        // chesta kore dekhi cupon apply discount korte pari kina //
+        // chesta kore dekhi append child er section korte pari kina //
+        const targetText =event.target.innerText;
+        console.log(targetText)
+        const appendContainer =document.getElementById('append-container');
+        // console.log(appendContainer)
+        const p1 =document.createElement("p");
+        p1.innerText=targetText;
+
+        const p2 =document.createElement("p");
+        p2.innerText="Economoy"
+
+        const p3 =document.createElement("p");
+        p3.innerText=seatPrice;
+
+        const div =document.createElement("div")
+        
+        div.appendChild(p1);
+        div.appendChild(p2);
+        div.appendChild(p3);
+        div.classList.add("flex");
+        div.classList.add("justify-between");
+        console.log(div);
+        appendContainer.appendChild(div);
+        // .................................. //
      
 
 
@@ -41,6 +63,8 @@ for (const seat of seats) {
 }
 
 
+
+// discount cupoon section ///
 document.getElementById('apply-btn').addEventListener('click',function(){
     
  const cuponField =document.getElementById('cupun-field').value;
@@ -52,7 +76,12 @@ document.getElementById('apply-btn').addEventListener('click',function(){
     // console.log(grandTotal)
 
     const inputField =document.getElementById('input-field');
-    inputField.classList.add('hidden')
+    inputField.classList.add('hidden');
+    // modal //
+const showModal =document.getElementById('next-btn');
+showModal.addEventListener('click', function(){
+    my_modal_1.showModal();
+})
     
  }
  else if(cuponField === "NEW15"){
