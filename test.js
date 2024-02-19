@@ -1,27 +1,44 @@
 "use strict"
 let seatCounts = 0;
 let bgCount = 0;
+let selectedSeats = []
 const seats = document.getElementsByClassName('lg:w-[100px]');
 for (const seat of seats) {
     seat.addEventListener('click', function () {
+        selectedSeats.push(seat.innerText)
 
-        if (bgCount <4){
-            bgCount =bgCount + 1;
+        if (selectedSeats.length < 5) {
             seat.classList.add("bg-green-500")
+            let tableRow = document.createElement("tr")
+            let tableCell = document.createElement("td")
+            let tableCell2 = document.createElement("td")
+            let tableCell3 = document.createElement("td")
+
+            tableCell.textContent = seat.innerText
+            tableCell2.textContent = "Economoy"
+            tableCell3.textContent = "550"
+            tableRow.appendChild(tableCell)
+            tableRow.appendChild(tableCell2)
+            tableRow.appendChild(tableCell3)
+            tableBody.appendChild(tableRow)
+            // seat count //
+            const seatCount = document.getElementById('seat-count');
+            seatCounts++;
+            seatCount.innerText = seatCounts;
+
+            const totalSeat = document.getElementById('total-seat').innerText;
+            const convertedTotalSeat = parseInt(totalSeat);
+            const newTotalSeat = convertedTotalSeat - 1;
+            document.getElementById('total-seat').innerText = newTotalSeat;
         }
-        
+
         else{
-            alert("you buy enough seat")
+            alert("You have buy only 4 seats")
         }
 
-        const seatCount = document.getElementById('seat-count');
-        seatCounts++;
-        seatCount.innerText = seatCounts;
+       
 
-        const totalSeat = document.getElementById('total-seat').innerText;
-        const convertedTotalSeat = parseInt(totalSeat);
-        const newTotalSeat = convertedTotalSeat - 1;
-        document.getElementById('total-seat').innerText = newTotalSeat;
+       
         // ...........seat count jug biyug complete............... //
 
         // ...........price calculate ............//
@@ -41,30 +58,7 @@ for (const seat of seats) {
         grandTotals.innerText = seatPrice + grandTotal;
 
         // ............................................................... // 
-        // chesta kore dekhi append child er section korte pari kina //
-        const targetText = event.target.innerText;
-        console.log(targetText)
-        
-        const appendContainer = document.getElementById('append-container');
-        const p1 = document.createElement("p");
-        p1.innerText = targetText;
-
-        const p2 = document.createElement("p");
-        p2.innerText = "Economoy"
-
-        const p3 = document.createElement("p");
-        p3.innerText = seatPrice;
-
-        const div = document.createElement("div")
-
-        div.appendChild(p1);
-        div.appendChild(p2);
-        div.appendChild(p3);
-        div.classList.add("flex");
-        div.classList.add("justify-between");
-        console.log(div);
-        appendContainer.appendChild(div);
-        // .................................. //
+      
 
 
     })
@@ -100,7 +94,13 @@ document.getElementById('apply-btn').addEventListener('click', function () {
         grandTotal.innerText = grandTotalValue - (grandTotalValue * 0.15);
 
         const inputField = document.getElementById('input-field');
-        inputField.classList.add('hidden')
+        inputField.classList.add('hidden');
+
+          // modal //
+          const showModal = document.getElementById('next-btn');
+          showModal.addEventListener('click', function () {
+              my_modal_1.showModal();
+            })
     }
     else {
         alert("Invalid Cupon Code");

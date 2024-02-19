@@ -62,7 +62,7 @@
                     preference, as there is
                     ticketing service for multiple routes via different categories of buses</p>
                 <div class="flex items-center justify-center">
-                    <button class="btn bg-green-500 font-semibold">Buy Tickets</button>
+                    <button onclick="location.href='#scroll'" class="btn bg-green-500 font-semibold">Buy Tickets</button>
                 </div>
              
             </div>
@@ -76,7 +76,7 @@
                             <h4 class="font-semibold">on your next purchase</h4>
                             <p>use by January 2024</p>
                         </div>
-                        <img class="sm:block hidden" src="./images/cupon-devider.png" alt="">
+                        <img class="hidden lg:block" src="./images/cupon-devider.png" alt="">
 
                         <div class="text-center py-5 flex flex-col justify-center items-center">
                             <h3 class="text-2xl lg:text-3xl font-bold">NEW15</h3>
@@ -89,7 +89,7 @@
                             <h4 class="font-semibold">on your next purchase</h4>
                             <p>use by January 2024</p>
                         </div>
-                        <img class="sm:block hidden" src="./images/cupon-devider.png" alt="">
+                        <img class="hidden lg:block" src="./images/cupon-devider.png" alt="">
                         <div class="text-center py-5 flex flex-col justify-center items-center">
                             <h3 class="text-2xl lg:text-3xl font-bold">Couple 20</h3>
                             <p>Cupon Code</p>
@@ -105,7 +105,7 @@
     </div>
     <main>
         <!-- PH paribahan section -->
-        <section class="bg-slate-100 my-16 rounded-3xl pb-6">
+        <section id="scroll" class="bg-slate-100 my-16 rounded-3xl pb-6">
             <div class="text-center py-16 *:mt-4">
                 <h2 class="text-4xl font-bold">J.H Paribahan</h2>
                 <p class="lg:w-[700px] mx-auto"> We have an excellent system of taking service based on
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" sm:block hidden">
+                    <div class="hidden lg:block">
                         <img src="./images/info-devider.png" alt="">
                     </div>
                     <!-- ph ticket price -->
@@ -252,15 +252,26 @@
                         <hr class=" border-t-2 border-gray-300 border-dashed font-bold pb-5">
                         <div class="bg-slate-100 px-5 w-[96%] rounded-2xl py-8">
                             <div class="flex justify-between py-4">
-                                <h3 class="font-bold text-xl">Seat<span id="seat-count"
-                                        class="bg-green-500 text-white font-semibold ml-1 px-2 rounded-md">0</span></h3>
-                                <h3 class="text-xl font-semibold">Class</h3>
-                                <h3 class="text-xl font-semibold">Price</h3>
+                                <table class="w-full">
+                                    <thead>
+                                        <tr>
+                                            <td>Seat <span id="seat-count"
+                                                    class="bg-green-500 text-white font-semibold ml-1 px-2 rounded-md">0</span>
+                                            </td>
+                                            <td>Class</td>
+                                            <td>Price</td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="tableBody">
+
+                                    </tbody>
+                                </table>
                             </div>
                             <hr class=" border-t-2 border-gray-300 border-dashed font-bold">
-                            <div id="append-container" class="py-3 *:text-xl *:font-semibold">
+                            <!-- <div id="append-container" class="py-3 *:text-xl *:font-semibold">
 
-                            </div>
+                            </div> -->
                             <hr class=" border-t-2 border-gray-300 border-solid font-bold">
                             <div class="flex justify-between py-2">
                                 <h3 class="text-2xl font-semibold">Total price</h3>
